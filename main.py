@@ -52,6 +52,7 @@ class ReactionListener(threading.Thread):
             if resp.event.ready_supplemental:
                 user = client.gateway.session.user
                 Console.printf("[+] Listenning -> {}#{}".format(user['username'], user['discriminator']))
+                client.gateway.subscribeToGuildEvents(False)
 
             if resp.event.message:
                 m = resp.parsed.auto()
